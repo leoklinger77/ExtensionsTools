@@ -4,8 +4,15 @@ namespace Klinger.ExtensionsTools
 {
     public static class DocumentsExtensions
     {
+        /* Description
+         * Apenas numeros
+         */
         public static string OnlyNumbers(this string srt) =>
            new string(srt.Where(char.IsDigit).ToArray());
+
+        /* Description
+         * Cnpj valido
+         */
         public static bool IsCnpj(this string cnpj)
         {
             if (string.IsNullOrEmpty(cnpj)) return false;
@@ -42,6 +49,10 @@ namespace Klinger.ExtensionsTools
             digito = digito + resto.ToString();
             return cnpj.EndsWith(digito);
         }
+
+        /* Description
+         * Cpf valido
+         */
         public static bool IsCpf(this string cpf)
         {
             if (string.IsNullOrEmpty(cpf)) return false;
@@ -82,6 +93,10 @@ namespace Klinger.ExtensionsTools
             digito = digito + resto.ToString();
             return cpf.EndsWith(digito);
         }
+
+        /* Description
+         * Email valido
+         */
         public static bool IsEmail(this string email)
         {
             if (string.IsNullOrEmpty(email)) return false;

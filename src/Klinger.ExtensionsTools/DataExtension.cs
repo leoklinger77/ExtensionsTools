@@ -2,21 +2,40 @@
 {
     public static class DataExtension
     {
-        public static bool DataOverYears(this DateTime date, int over = 1) =>
+        /* Description
+         * Data menor que tantos anos
+         */
+        public static bool LessThanYears(this DateTime date, int over = 1) =>
             date.Date <= DateTime.Now.AddYears(over);
-        public static bool DataOverMonths(this DateTime date, int over = 1) =>
+
+        /* Description
+         * Data menor que tantos meses
+         */
+        public static bool LessThanMonths(this DateTime date, int over = 1) =>
             date.Date <= DateTime.Now.AddMonths(over);
-        public static bool DataOverDays(this DateTime date, int over = 1) =>
+
+        /* Description
+         * Data menor que tantos dias
+         */
+        public static bool LessThanDays(this DateTime date, int over = 1) =>
             date.Date <= DateTime.Now.AddDays(over);
-        public static bool IsUnderage(this DateTime dateTime)
+
+        /* Description
+         * Idade menor que tantos anos
+         */
+        public static bool IsUnderage(this DateTime dateTime, int age)
         {
-            int age = DateTime.Now.Year - dateTime.Year;
+            int resultAge = DateTime.Now.Year - dateTime.Year;
             if (DateTime.Now.DayOfYear < dateTime.DayOfYear)
             {
-                age--;
+                resultAge--;
             }
-            return age <= 18;
+            return resultAge <= age;
         }
+
+        /* Description
+         * Http Delete as Json
+         */
         public static long ToUnixEpochDate(DateTime date)
             => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalSeconds);
     }

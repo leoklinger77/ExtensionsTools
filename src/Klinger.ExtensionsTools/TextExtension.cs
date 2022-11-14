@@ -4,6 +4,10 @@ namespace Klinger.ExtensionsTools
 {
     public static class TextExtension
     {
+
+        /* Description
+         * Remover caracteres especiais
+         */
         public static string? RemoveSpecialCharacters(this string value)
         {
             if (string.IsNullOrEmpty(value)) return value;
@@ -17,6 +21,10 @@ namespace Klinger.ExtensionsTools
 
             return value;
         }
+
+        /* Description
+         * Remover todos os espaços em branco
+         */
         public static string? RemoveSpaceCharacters(this string value)
         {
             if (string.IsNullOrEmpty(value)) return value;
@@ -24,6 +32,11 @@ namespace Klinger.ExtensionsTools
             value = value.Trim().Replace(" ", "");
             return value;
         }
+
+        /* Description
+         * Trocar caracteres especiais por não especiais
+         * Ex: trocar é por e
+         */
         public static string RemoveDiacritics(this string text)
         {
             if (string.IsNullOrEmpty(text))
@@ -39,7 +52,8 @@ namespace Klinger.ExtensionsTools
             }
 
             return sb.ToString();
-        }        
+        }
+        
         private static char[] GetDiacritics()
         {
             char[] accents = new char[256];

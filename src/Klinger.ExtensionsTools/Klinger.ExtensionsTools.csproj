@@ -2,8 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>		
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>Klinger.ExtensionTools</PackageId>
 		<Version>1.0.0</Version>
@@ -13,6 +12,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.DataAnnotations" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
 	</ItemGroup>
 

@@ -1,4 +1,4 @@
-﻿namespace Klinger.ExtensionsTools
+﻿namespace Klinger.ExtensionsTools.Tools
 {
     public static class ToolsExtensions
     {

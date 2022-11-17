@@ -1,7 +1,8 @@
-﻿
-namespace Klinger.ExtensionsTools
+﻿using Klinger.ExtensionsTools.Exceptions;
+
+namespace Klinger.ExtensionsTools.Validations
 {
-    public static class Validation
+    public static class DomainValidation
     {
         public static void ValidateIfEqual(object object1, object object2, string message)
         {
@@ -134,6 +135,6 @@ namespace Klinger.ExtensionsTools
             {
                 throw new DomainToolsException(message);
             }
-        }        
+        }
     }
 }

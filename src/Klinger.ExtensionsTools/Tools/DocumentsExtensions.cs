@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Klinger.ExtensionsTools
+namespace Klinger.ExtensionsTools.Tools
 {
     public static class DocumentsExtensions
     {
@@ -31,7 +31,7 @@ namespace Klinger.ExtensionsTools
             soma = 0;
             for (int i = 0; i < 12; i++)
                 soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
-            resto = (soma % 11);
+            resto = soma % 11;
             if (resto < 2)
                 resto = 0;
             else
@@ -41,7 +41,7 @@ namespace Klinger.ExtensionsTools
             soma = 0;
             for (int i = 0; i < 13; i++)
                 soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
-            resto = (soma % 11);
+            resto = soma % 11;
             if (resto < 2)
                 resto = 0;
             else

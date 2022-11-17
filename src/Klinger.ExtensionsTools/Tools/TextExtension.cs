@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Klinger.ExtensionsTools
+namespace Klinger.ExtensionsTools.Tools
 {
     public static class TextExtension
     {
@@ -53,7 +53,7 @@ namespace Klinger.ExtensionsTools
 
             return sb.ToString();
         }
-        
+
         private static char[] GetDiacritics()
         {
             char[] accents = new char[256];

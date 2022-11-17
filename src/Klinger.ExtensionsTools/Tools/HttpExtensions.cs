@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Json;
 using System.Text.Json;
 
-namespace Klinger.ExtensionsTools
+namespace Klinger.ExtensionsTools.Tools
 {
     public static class HttpExtensions
     {

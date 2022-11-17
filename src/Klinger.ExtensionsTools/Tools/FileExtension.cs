@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Klinger.ExtensionsTools.Exceptions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
 
-namespace Klinger.ExtensionsTools
+namespace Klinger.ExtensionsTools.Tools
 {
     public static class FileExtension
     {
@@ -48,7 +50,7 @@ namespace Klinger.ExtensionsTools
         /* Description
          * Obter File
          */
-        public static FileStream? GetFile(this string path)
+        public static FileStream GetFile(this string path)
         {
             if (string.IsNullOrEmpty(path)) throw new NullReferenceException("Path is null declared");
 
@@ -57,6 +59,23 @@ namespace Klinger.ExtensionsTools
             if (!File.Exists(pathtemp)) return null;
 
             return File.OpenRead(pathtemp);
+        }
+
+        /* Description
+         * Mover file
+         */
+        public static bool MoveFile(this string path, string newPath)
+        {
+            if (string.IsNullOrEmpty(path)) throw new NullReferenceException("Path is null declared");
+
+            path = Path.Combine(CurrentDirectory, path);
+            newPath = Path.Combine(CurrentDirectory, newPath);
+
+            if (!File.Exists(path)) throw new DomainToolsException("Path not found");
+            if (!File.Exists(newPath)) throw new DomainToolsException("New Path not found");
+
+            File.Move(path, newPath);
+            return true;
         }
 
         /* Description

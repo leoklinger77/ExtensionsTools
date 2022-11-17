@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Klinger.ExtensionsTools
+namespace Klinger.ExtensionsTools.Exceptions
 {
     public class DomainToolsException : Exception
     {

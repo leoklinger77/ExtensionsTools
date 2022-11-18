@@ -58,7 +58,15 @@
         /* Description
          * Http Delete as Json
          */
-        public static long ToUnixEpochDate(DateTime date)
+        public static long ToUnixEpochDate(this DateTime date)
             => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalSeconds);
+
+        /* Description
+         * Data menor ou igual a hora
+         */
+        public static bool DateLessThanOrEqualToToday(this DateTime date)
+        {
+            return date.Date.Date <= DateTime.Now.Date;
+        }
     }
 }

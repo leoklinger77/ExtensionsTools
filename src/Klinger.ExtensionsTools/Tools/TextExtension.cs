@@ -8,7 +8,7 @@ namespace Klinger.ExtensionsTools.Tools
         /* Description
          * Remover caracteres especiais
          */
-        public static string? RemoveSpecialCharacters(this string value)
+        public static string RemoveSpecialCharacters(this string value)
         {
             if (string.IsNullOrEmpty(value)) return value;
 
@@ -25,7 +25,7 @@ namespace Klinger.ExtensionsTools.Tools
         /* Description
          * Remover todos os espaços em branco
          */
-        public static string? RemoveSpaceCharacters(this string value)
+        public static string RemoveSpaceCharacters(this string value)
         {
             if (string.IsNullOrEmpty(value)) return value;
 

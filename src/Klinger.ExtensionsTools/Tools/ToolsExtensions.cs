@@ -1,4 +1,6 @@
-﻿namespace Klinger.ExtensionsTools.Tools
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace Klinger.ExtensionsTools.Tools
 {
     public static class ToolsExtensions
     {
@@ -7,6 +9,7 @@
          */
         public static void ForEach<T>(this IEnumerable<T> items, Action<T> itemAction)
         {
+            if (items is null) return;
             foreach (var item in items)
             {
                 itemAction(item);
@@ -93,5 +96,12 @@
          * Calculo Bytes para GigaBytes
          */
         public static double BytesToGigabyte(this int bytes) => Math.Pow(bytes, 20);
+
+        public static string PageNavClass(this ViewContext viewContext, string page)
+        {
+            var activePage = viewContext.ViewData["ActivePage"] as string
+                ?? Path.GetFileNameWithoutExtension(viewContext.ActionDescriptor.DisplayName);
+            return string.Equals(activePage, page, StringComparison.OrdinalIgnoreCase) ? "active" : null;
+        }
     }
 }

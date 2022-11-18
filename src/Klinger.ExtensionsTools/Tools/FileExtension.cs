@@ -1,7 +1,6 @@
 ﻿using Klinger.ExtensionsTools.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using System.IO;
 
 namespace Klinger.ExtensionsTools.Tools
 {

@@ -10,16 +10,19 @@ namespace Klinger.ExtensionsTools.DataAnnotationsExtensions
     {
         public string GetErrorMessage() => ConfigDataAnnotationsExtension.MessageIsUnderage;
         public int Age { get; private set; }
-        public IsUnderageAttribute() { }
-        public IsUnderageAttribute(string errorMessage, int age) : base(errorMessage)
+        public IsUnderageAttribute(int age)
         {
             Age = age;
+        }
+        public IsUnderageAttribute(string errorMessage) : base(errorMessage)
+        {
+
             ConfigDataAnnotationsExtension.MessageIsUnderage = errorMessage;
         }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if(value is DateTime)
+            if (value is DateTime)
             {
                 DateTime date = (DateTime)value;
                 if (date.DateLessThanYear(Age)) return new ValidationResult(GetErrorMessage());

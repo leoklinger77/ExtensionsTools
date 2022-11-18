@@ -25,7 +25,7 @@ namespace Klinger.ExtensionsTools.Tools
         /* Description
          * Deserializar string para Object
          */
-        public static T? DeserializeObject<T>(this string data) =>
+        public static T DeserializeObject<T>(this string data) =>
             JsonSerializer.Deserialize<T>(data, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
     }
 }

@@ -36,7 +36,7 @@ namespace Klinger.ExtensionsTools.Validations
         }
         public static void ValidateIsNullOrEmpty(string value, string message)
         {
-            if (string.IsNullOrEmpty(value.Trim()))
+            if (string.IsNullOrEmpty(value))
             {
                 throw new DomainToolsException(message);
             }

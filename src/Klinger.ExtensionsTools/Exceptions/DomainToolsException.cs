@@ -13,8 +13,16 @@ namespace Klinger.ExtensionsTools.Exceptions
         {
         }
 
-        protected DomainToolsException(SerializationInfo info, StreamingContext context) : base(info, context)
+        public DomainToolsException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
+        }
+
+        public static void ThrowIfNull(object? argument, string? paramName = null)
+        {
+            if (argument is null)
+            {
+                throw new DomainToolsException(paramName);
+            }
         }
     }
 }

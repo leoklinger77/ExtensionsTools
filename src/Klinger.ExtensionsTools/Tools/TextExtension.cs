@@ -18,7 +18,6 @@ namespace Klinger.ExtensionsTools.Tools
             {
                 value = value.Replace(item, "");
             }
-
             return value;
         }
 

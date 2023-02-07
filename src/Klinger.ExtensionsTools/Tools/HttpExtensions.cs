@@ -29,6 +29,11 @@ namespace Klinger.ExtensionsTools.Tools
         public static T DeserializeObject<T>(this string data) =>
             JsonSerializer.Deserialize<T>(data, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
+        /* Description
+         * Deserializar HttpResponseMessage para Object
+         */
+        public static async Task<T> DeserializeResponse<T>(this HttpResponseMessage responseMessage) =>
+            JsonSerializer.Deserialize<T>(await responseMessage.Content.ReadAsStringAsync(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
         public static StringContent GetContext(this object data)
             => new StringContent(data.SerializeObject(), Encoding.UTF8, "application/json");
